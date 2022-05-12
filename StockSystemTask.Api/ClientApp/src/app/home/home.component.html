@@ -1,0 +1,17 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label>Symbol to load data</label>
+    <input type="text" [(ngModel)]="symbol" name="symbol" required>
+  </p>
+  <p>
+    <button type="submit">Submit</button>
+  </p>
+</form>
+
+<p *ngIf="showLoading"><em>Loading...</em></p>
+
+<canvas *ngIf="dataLoaded" baseChart
+        [data]="lineChartData"
+        [type]="'line'"
+        [options]="lineChartOptions">
+</canvas>
